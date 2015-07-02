@@ -226,18 +226,36 @@
         </script>
             <script>
     function vollbild() {
-     
-      var element = document.getElementById("gpsball");
-     
-      if (element.requestFullScreen) {
-        element.requestFullScreen();
-      } else if (element.mozRequestFullScreen) {
-        element.mozRequestFullScreen();
-      } else if (element.webkitRequestFullScreen) {
-        element.webkitRequestFullScreen();
-      }
-     
+ 
+  var element = document.getElementById("gssball");
+ 
+  if (element.requestFullScreen) {
+ 
+    if (!document.fullScreen) {
+      element.requestFullscreen();
+    } else {
+      document.exitFullScreen();
     }
+ 
+  } else if (element.mozRequestFullScreen) {
+ 
+    if (!document.mozFullScreen) {
+      element.mozRequestFullScreen();
+    } else {
+      document.mozCancelFullScreen();
+    }
+ 
+  } else if (element.webkitRequestFullScreen) {
+ 
+    if (!document.webkitIsFullScreen) {
+      element.webkitRequestFullScreen();
+    } else {
+      document.webkitCancelFullScreen();
+    }
+ 
+  }
+ 
+}
      
     document.getElementById("all_in").addEventListener("click", vollbild, false);
             </script>

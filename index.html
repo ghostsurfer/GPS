@@ -30,7 +30,46 @@
                         <li><a class="page-scroll" href="#nr_three">3. Point</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a id="all_in" ><i class="glyphicon glyphicon-resize-full"></i></a></li>
+                        <li>
+                        
+                        <a class="" data-toggle="modal" data-target="#complete-dialog"><i class="glyphicon gpsqr glyphicon-qrcode"></i>
+</a></li>
+
+                        
+ 
+                        
+                        
+                        
+                        
+                        
+                        
                     </ul>
+                    
+                    
+                    
+                    
+                                            <div id="complete-dialog" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Follow us on you'r Smartphone:</h4>
+      </div>
+      <div class="modal-body">
+                                          <img class="qrpic" src='https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2Fghostsurfer.github.io%2FGPS%2F&chs=500x500&choe=UTF-8&chld=L|2' alt=''>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">Dismiss</button>
+      </div>
+    </div>
+  </div>
+</div>
+                       
+                    
+                    
+                    
+                    
                 </div>
             </div>
         </header>
@@ -138,6 +177,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
         <script src="js/jquery.easing.min.js"></script>
         <script src="js/scrolling-nav.js"></script>
+        <script src="js/bigscreen.min.js"></script>            
         <script>
             var map;
             function initialize() {
@@ -187,5 +227,16 @@
                 $.material.init();
             });
         </script>
+            <script>
+            document.getElementById('all_in').addEventListener('click', function() {
+    if (BigScreen.enabled) {
+        BigScreen.toggle();
+    }
+    else {
+        // fallback for browsers that don't support full screen
+    }
+}, false);
+            </script>
     </body>
 </html>
+

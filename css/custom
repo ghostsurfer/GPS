@@ -1,0 +1,29 @@
+titel{
+    display: none;
+}
+@media (min-width: 1200px) {
+    .container-fluid{
+        top:60px;
+    }
+}
+@media (max-width: 1200px) {
+    .container-fluid{
+        top:50px;
+    }
+}
+
+
+html, body, #map-canvas{
+        height: 100%;
+}
+.row:after {
+  height: 100%;
+  background-color: beige;
+  width: 100%;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  position: absolute;
+  z-index: -1000000000;
+}

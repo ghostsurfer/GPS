@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id="gpsball">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,7 +30,7 @@
                         <li><a class="page-scroll" href="#nr_three">3. Point</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right hidden-xs">
-                        <li><a id="all_in" ><i class="glyphicon glyphicon-resize-full"></i></a></li>
+                        <li id="all_in"><a><i class="glyphicon glyphicon-resize-full"></i></a></li>
                         <li>
                         
                         <a class="" data-toggle="modal" data-target="#complete-dialog"><i class="glyphicon gpsqr glyphicon-qrcode"></i>
@@ -225,14 +225,21 @@
             });
         </script>
             <script>
-            document.getElementById('all_in').addEventListener('click', function() {
-    if (BigScreen.enabled) {
-        BigScreen.toggle();
+    function vollbild() {
+     
+      var element = document.getElementById("gpsball");
+     
+      if (element.requestFullScreen) {
+        element.requestFullScreen();
+      } else if (element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+      } else if (element.webkitRequestFullScreen) {
+        element.webkitRequestFullScreen();
+      }
+     
     }
-    else {
-        // fallback for browsers that don't support full screen
-    }
-}, false);
+     
+    document.getElementById("all_in").addEventListener("click", vollbild, false);
             </script>
     </body>
 </html>

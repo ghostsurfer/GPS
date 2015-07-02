@@ -88,3 +88,16 @@ img{
 .minheight{
     min-height: 1000px;
 }
+
+.gpsqr{
+    font-size: 16px;
+    padding-right: 30px;
+    cursor: pointer;
+}
+.navbar li *{
+    cursor: pointer;
+}
+
+.qrpic{
+    width: 80%;
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id="gpsball">
+<html id="fullscreenCont">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,7 +30,7 @@
                         <li><a class="page-scroll" href="#nr_three">3. Point</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right hidden-xs">
-                        <li id="all_in"><a><i id="open_fullscreen" class="glyphicon glyphicon-resize-full" style="display:inline;"></i><i id="close_fullscreen" class="glyphicon glyphicon-resize-small" style="display:none;"></i></a></li>
+                        <li id="fullscreenButton"><a><i id="open_fullscreen" class="glyphicon glyphicon-resize-full" style="display:inline;"></i><i id="close_fullscreen" class="glyphicon glyphicon-resize-small" style="display:none;"></i></a></li>
                         <li>
                         
                         <a class="" data-toggle="modal" data-target="#complete-dialog"><i class="glyphicon gpsqr glyphicon-qrcode"></i>
@@ -175,103 +175,13 @@
         <script src="js/jquery.easing.min.js"></script>
         <script src="js/scrolling-nav.js"></script>
         <script src="js/bigscreen.min.js"></script>            
-        <script>
-            var map;
-            function initialize() {
-                map = new google.maps.Map(document.getElementById('map-canvas'), {
-                    zoom: 3,
-                    center: {lat: 0, lng: 0}
-                });
-            }
-                        
-            google.maps.event.addDomListener(window, 'load', initialize);
-                            
-            document.querySelector('#btn_zoom').addEventListener('click', function(){
-                                
-                navigator.geolocation.getCurrentPosition(function(position) {
-                                    
-                    var myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                    var marker = new google.maps.Marker({
-                        position: myLatlng,
-                        map: map,
-                        title: 'Sie sind Hier!!'
-                    });
-                    map.setCenter(myLatlng);
-                    map. setZoom(4);
-                    setTimeout(function(){
-                        map.setZoom(6);
-                        setTimeout(function(){
-                            map.setZoom(8)
-                            setTimeout(function(){
-                                map.setZoom(10)
-                                setTimeout(function(){
-                                    map.setZoom(12)
-                                    setTimeout(function(){
-                                        map.setZoom(14)
-                                        setTimeout(function(){
-                                            map.setZoom(16)
-                                        },500);
-                                    },500);
-                                },500);  
-                            },500);  
-                        },500);                 
-                    },500);                
-                });
-            });
-        </script>
+        <script src="js/locator.js"></script>
         <script>
             $(document).ready(function() {
                 $.material.init();
             });
         </script>
-            <script>
-    function vollbild() {
- 
-  var element = document.getElementById("gpsball");
- 
-  if (element.requestFullScreen) {
- 
-    if (!document.fullScreen) {
-        document.getElementById('open_fullscreen').setAttribute('style', 'display:none;');
-        document.getElementById('close_fullscreen').setAttribute('style', 'display:inline;');
-        element.requestFullscreen();  
-    } else {
-        document.getElementById('open_fullscreen').setAttribute('style', 'display:inline;');
-        document.getElementById('close_fullscreen').setAttribute('style', 'display:none;');
-        document.exitFullScreen();
-    }
- 
-  } else if (element.mozRequestFullScreen) {
- 
-    if (!document.mozFullScreen) {
-        document.getElementById('open_fullscreen').setAttribute('style', 'display:none;');
-        document.getElementById('close_fullscreen').setAttribute('style', 'display:inline;');
-        element.mozRequestFullScreen();
-    } else {        
-        document.getElementById('open_fullscreen').setAttribute('style', 'display:inline;');
-        document.getElementById('close_fullscreen').setAttribute('style', 'display:none;');
-        document.mozCancelFullScreen();
-    }
- 
-  } else if (element.webkitRequestFullScreen) {
- 
-    if (!document.webkitIsFullScreen) {
-        document.getElementById('open_fullscreen').setAttribute('style', 'display:none;');
-        document.getElementById('close_fullscreen').setAttribute('style', 'display:inline;');        
-        element.webkitRequestFullScreen();
-    } else {
-                                        
-        document.getElementById('open_fullscreen').setAttribute('style', 'display:inline;');
-        document.getElementById('close_fullscreen').setAttribute('style', 'display:none;');
-        document.webkitCancelFullScreen();
-    }
- 
-  }
- 
-}
-     
-    document.getElementById("all_in").addEventListener("click", vollbild, false);                
-            </script>
+            <script src="js/fullscreen.js"></script>
     </body>
 </html>
 
